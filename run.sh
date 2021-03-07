@@ -1,0 +1,1 @@
+mvn clean compile install -T4C spring-boot:run -DskipTests > logs.log
