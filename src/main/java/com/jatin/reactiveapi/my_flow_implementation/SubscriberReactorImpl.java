@@ -1,13 +1,12 @@
 package com.jatin.reactiveapi.my_flow_implementation;
 
-import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+import reactor.core.CoreSubscriber;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Flow;
 
-public class SubscriberReactorImpl<Employee> implements Subscriber<Employee> {
+public class SubscriberReactorImpl<Employee> implements CoreSubscriber<Employee> {
     private Subscription subscription;
 
     private String subscriberName = new String("Subscriber 2");

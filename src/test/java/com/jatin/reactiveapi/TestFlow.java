@@ -64,17 +64,18 @@ public class TestFlow {
                 new Employee(7, "seventh", "007", new BigDecimal("70000.00"))
         );
         Flux<Employee> publisher = Flux.fromIterable(employees);
-        publisher.delayElements(Duration.ofMillis(1000)).subscribe(new Consumer<Employee>() {
+        publisher.delayElements(Duration.ofMillis(1000)).log().subscribe(new Consumer<Employee>() {
             @SneakyThrows
             @Override
             public void accept(Employee employee) {
-                Thread.sleep(1000);
-                System.out.println("Got: " + employee + " Thread: " + Thread.currentThread().getId());
+                //System.out.println("thread going to 💤");
+                //Thread.sleep(1000);
+                //System.out.println("Got: " + employee + " Thread: " + Thread.currentThread().getId());
             }
         });
         int t = 10;
         while (t-- > 0) {
-            System.out.println("other string on Thread: " + Thread.currentThread().getId());
+            System.out.println("other string on Thread: " + Thread.currentThread().getName());
             Thread.sleep(1000);
         }
         var startTime = System.currentTimeMillis();
